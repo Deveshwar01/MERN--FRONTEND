@@ -62,8 +62,12 @@ const Login = () => {
       const res = await axios.get(`${server}/auth/login/success`, {
         withCredentials: true,
       });
-      console.log("User Data:", res.data);
-    } catch (error) {}
+      if (res.data && res.data.user) {
+        toast.success("Logged in with Google successfully!");
+        handleRedirect();
+      }
+    } catch (error) {
+    }
   };
 
   useEffect(() => {

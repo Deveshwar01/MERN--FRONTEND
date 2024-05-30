@@ -1,5 +1,6 @@
 // src/redux/registerUser.js
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import server from '../config'
 
 // Enum for different statuses
 export const STATUSES = Object.freeze({
