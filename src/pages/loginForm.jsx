@@ -57,14 +57,20 @@ const Login = () => {
     }
   };
 
-  const getUser = async () => {
+   const getUser = async () => {
     try {
       const res = await axios.get(`${server}/auth/login/success`, {
         withCredentials: true,
       });
-      console.log("User Data:", res.data);
-    } catch (error) {}
+      if (res.data && res.data.user) {
+        toast.success("Logged in with Google successfully!");
+        handleRedirect();
+      }
+    } catch (error) {
+      console.error("Error fetching user:", error);
+    }
   };
+
 
   useEffect(() => {
     getUser();
