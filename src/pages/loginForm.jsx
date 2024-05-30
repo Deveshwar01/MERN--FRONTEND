@@ -57,7 +57,7 @@ const Login = () => {
     }
   };
 
-  const getUser = async () => {
+   const getUser = async () => {
     try {
       const res = await axios.get(`${server}/auth/login/success`, {
         withCredentials: true,
@@ -69,6 +69,7 @@ const Login = () => {
     } catch (error) {
     }
   };
+
 
   useEffect(() => {
     getUser();
